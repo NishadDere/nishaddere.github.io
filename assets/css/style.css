@@ -1,0 +1,38 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #2d3436;
+    --accent-color: #0984e3;
+}
+
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #dfe6e9;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.btn-theme {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--accent-color);
+    color: white;
+}
+
+.project-card {
+    background: rgba(9, 132, 227, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.cert-img {
+    width: 300px;
+    border: 2px solid var(--accent-color);
+    cursor: zoom-in;
+}
+
+/* Add more custom styles */
