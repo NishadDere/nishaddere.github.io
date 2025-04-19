@@ -1,31 +1,28 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('themeToggle');
-    const savedTheme = localStorage.getItem('theme');
+// Enhanced Dark Mode Toggle
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme');
 
-    // Initialize theme
-    if (savedTheme === 'dark-mode') {
-        document.body.classList.add('dark-mode');
-        themeToggle.querySelector('i').className = 'fas fa-sun';
-    }
+if (savedTheme) {
+    document.body.classList.add(savedTheme);
+    themeToggle.querySelector('i').className = savedTheme === 'dark-mode' ? 'fas fa-sun' : 'fas fa-moon';
+}
 
-    // Toggle handler
-    themeToggle.addEventListener('click', () => {
-        const isDark = !document.body.classList.contains('dark-mode');
-        
-        document.body.classList.toggle('dark-mode', isDark);
-        const icon = themeToggle.querySelector('i');
-        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-        
-        localStorage.setItem('theme', isDark ? 'dark-mode' : 'light');
-    });
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const icon = themeToggle.querySelector('i');
+    const theme = document.body.classList.contains('dark-mode') ? 'dark-mode' : 'light';
+    
+    icon.classList.toggle('fa-moon');
+    icon.classList.toggle('fa-sun');
+    localStorage.setItem('theme', theme);
+});
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+// Smooth scroll for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
         });
     });
 });
