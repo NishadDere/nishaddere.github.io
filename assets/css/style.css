@@ -93,3 +93,49 @@
 }
 
 /* Add all previous dark mode and base styles */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --accent-color: #2563eb;
+    --card-bg: #f8f9fa;
+}
+
+.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --card-bg: #1e1e1e;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.btn-theme {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.dark-mode .card {
+    border-color: rgba(255,255,255,0.1);
+}
+
+.section-title {
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
